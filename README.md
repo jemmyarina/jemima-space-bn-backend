@@ -1,0 +1,2 @@
+# jemima-space-bn-backend
+REST API WITH EXPRESS/NODE JS AND POSTGRES-SEQUELIZE
