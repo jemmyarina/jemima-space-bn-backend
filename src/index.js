@@ -1,9 +1,11 @@
-import app from './app';
+require('dotenv').config();
+const app = require('./app')
 
-const PORT = process.env.PORT || 5000;
-
-// eslint-disable-next-line no-console
-app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
-
+const port = process.env.PORT;
+/*app.listen(port, () => {
+  // eslint-disable-next-line no-console
+  //console.log(`App connected on port ${port}`);
+}); 
+*/
 
 

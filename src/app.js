@@ -1,20 +1,17 @@
-import express, { json,urlencoded } from 'express';
-import dotenv from 'dotenv';
-import router from './routes/routes';
-
-dotenv.config();
+const express = require('express')
+const welcome = require('./routes/index');
+const createRoom = require('./routes/createRoom');
 
 const app = express();
 
-app.use(json());
-app.use(urlencoded( { extended:true } ))
+app.use(express.json());
+app.use('/api', welcome);
+app.use('/createRoom',createRoom);
 
-app.get('/', (req, res) => {
-  res.json({ status: 'success', message: 'Welcome to my server' });
-});
+const PORT = process.env.PORT || 3000;
 
-app.use(`/api/${process.env.API_VERSION}`, router);
+// eslint-disable-next-line no-console
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
 
-export default app;
-
+module.exports = app;
 
